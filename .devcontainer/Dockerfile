@@ -62,7 +62,8 @@ RUN mkdir -p ${WORKING_DIR}/node_modules \
   # * Install Yarn.
   && volta install yarn@latest \
   # * Define a variable for Windows Subsystem for Linux 2 (WSL2).
-  && DISPLAY_SNIPPET="export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0" \
+  && DISPLAY_SNIPPET="export DISPLAY=$(ip route | awk '/default via / {print $3}'):0" \
+  # && DISPLAY_SNIPPET="export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0" \
   && echo ${DISPLAY_SNIPPET} >> "/home/${USERNAME}/.zshrc"
 
 ENTRYPOINT [ "/usr/local/share/docker-init.sh" ]

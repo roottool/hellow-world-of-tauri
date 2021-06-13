@@ -6,8 +6,8 @@
   "build": {
     "distDir": "../dist",
     "devPath": "http://localhost:8080/",
-    "beforeDevCommand": "",
-    "beforeBuildCommand": ""
+    "beforeDevCommand": "yarn dev",
+    "beforeBuildCommand": "yarn build"
   },
   "tauri": {
     "bundle": {
@@ -53,7 +53,7 @@
     },
     "windows": [
       {
-        "title": "Try to Tauri",
+        "title": "Hello World",
         "width": 800,
         "height": 600,
         "resizable": true,
